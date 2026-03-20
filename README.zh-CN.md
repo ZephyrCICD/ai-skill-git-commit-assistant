@@ -95,6 +95,10 @@ gemini extensions update git-commit-message
 
 详见：`docs/update.md`
 
+### Release 发布
+
+每次发布 GitHub Release 时，都会自动生成 release notes，并附带一个 `skills-<tag>.zip` 压缩包，其中包含 `skills/` 目录。
+
 ### 让其他 AI 帮你安装
 
 请直接使用和目标 CLI 对应的文件：

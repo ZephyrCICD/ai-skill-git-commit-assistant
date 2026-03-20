@@ -1,0 +1,63 @@
+name: Release Assets
+
+on:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: write
+
+jobs:
+  package-skills:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Derive release metadata
+        id: meta
+        run: |
+          tag_name="${{ github.event.release.tag_name }}"
+          archive_name="skills-${tag_name}.zip"
+          echo "tag_name=${tag_name}" >> "$GITHUB_OUTPUT"
+          echo "archive_name=${archive_name}" >> "$GITHUB_OUTPUT"
+
+      - name: Generate release notes
+        id: notes
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const tagName = context.payload.release.tag_name;
+            const targetCommitish = context.payload.release.target_commitish;
+
+            const generated = await github.rest.repos.generateReleaseNotes({
+              owner,
+              repo,
+              tag_name: tagName,
+              target_commitish: targetCommitish,
+            });
+
+            await github.rest.repos.updateRelease({
+              owner,
+              repo,
+              release_id: context.payload.release.id,
+              body: generated.data.body,
+            });
+
+      - name: Package skills directory
+        run: |
+          archive_name="${{ steps.meta.outputs.archive_name }}"
+          zip -r "$archive_name" skills
+
+      - name: Upload skills archive to release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload "${{ steps.meta.outputs.tag_name }}" \
+            "${{ steps.meta.outputs.archive_name }}" \
+            --clobber

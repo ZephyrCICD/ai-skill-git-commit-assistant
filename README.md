@@ -95,6 +95,10 @@ Detailed guide: `docs/install-gemini-cli.md`
 
 See `docs/update.md`.
 
+### Releases
+
+Each published GitHub Release automatically generates release notes and attaches a `skills-<tag>.zip` archive containing the `skills/` directory.
+
 ### Tell Another AI To Install It
 
 Use the file that matches the target CLI:
