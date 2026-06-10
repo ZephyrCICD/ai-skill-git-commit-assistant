@@ -1,16 +1,16 @@
-# Git Commit Message Skills
+# Git Commit Assistant
 
 [English](README.md) | 简体中文
 
-这是一个可分享的 AI skill 仓库，用于根据最近一次对话上下文和当前仓库的 git diff 生成 Git commit message。
+这是一个可分享的 AI skill 仓库，用于根据最近一次对话上下文和当前仓库的 git diff 生成 Conventional Commit message，并在需要时创建聚焦的 Git commit。
 
 推荐安装方式：优先使用目标工具自己的 marketplace 流程。本仓库同时包含 Claude Code 和
 Codex 的 marketplace 元数据，但两者不会自动共用同一个插件市场配置。
 
 仓库包含两个相关 skill：
 
-- `ggm` - 只生成简洁的 commit message
-- `ggm-p` - 生成 commit message，检查相关文件，并在隐私检查通过后自动执行 `git commit`
+- `draft-commit-message` - 只生成简洁的 commit message
+- `commit-changes` - 选择相关文件，检查疑似隐私泄漏，并创建 commit
 
 ## 这两个 Skill 的作用
 
@@ -21,7 +21,7 @@ Codex 的 marketplace 元数据，但两者不会自动共用同一个插件市�
 - Conventional Commits 最佳实践
 - 可选的 scope 风格，例如 `feat(ship): ...`
 
-其中 `ggm-p` 会额外提供一层保护流程：
+其中 `commit-changes` 会额外提供一层保护流程：
 
 - 只选择和本次改动相关的文件
 - 在 commit 前检查这些文件中是否可能包含个人隐私信息
@@ -36,7 +36,7 @@ Codex 的 marketplace 元数据，但两者不会自动共用同一个插件市�
 - 当对话描述与实际 diff 冲突时，优先相信真实代码改动
 - 生成 commit message 时会优先跟随最近 3 轮用户消息的主语言，必要时再回退到更宽的最近对话上下文
 - 同时支持 Claude Code 和 Codex 的 marketplace 安装流程
-- 将 `ggm` 和 `ggm-p` 分开，便于明确区分“仅生成 message”和“自动 commit”的流程
+- 将“仅生成 message”和“创建 commit”分开，便于明确表达用户意图
 
 ## 示例输出
 
@@ -57,18 +57,18 @@ OpenCode 更适合直接把一句安装指令复制给对应 AI；Gemini CLI 使
 
 ```bash
 claude plugin marketplace add zephyrcicd/ai-skill-git-commit-message
-claude plugin install git-commit-message@git-skills
+claude plugin install git-commit-assistant@git-skills
 ```
 
 ### Codex
 
 Codex 使用本仓库里的 `.agents/plugins/marketplace.json` marketplace，以及
-`plugins/git-commit-message/.codex-plugin/plugin.json` 插件 manifest。先添加 marketplace，
+`plugins/git-commit-assistant/.codex-plugin/plugin.json` 插件 manifest。先添加 marketplace，
 再安装插件：
 
 ```bash
 codex plugin marketplace add zephyrcicd/ai-skill-git-commit-message
-codex plugin add git-commit-message@git-skills
+codex plugin add git-commit-assistant@git-skills
 ```
 
 安装后新开一个 Codex 会话，让 bundled skills 生效。
@@ -94,7 +94,7 @@ gemini extensions install https://github.com/zephyrcicd/ai-skill-git-commit-mess
 更新：
 
 ```bash
-gemini extensions update git-commit-message
+gemini extensions update git-commit-assistant
 ```
 
 详细说明见：`docs/install-gemini-cli.md`
@@ -121,24 +121,27 @@ gemini extensions update git-commit-message
 ## 使用方式
 
 ```text
-$ggm
+$draft-commit-message
 ```
 
 ```text
-$ggm-p
+$commit-changes
 ```
 
 通过 Codex 插件方式安装时，Codex 可能会以插件命名空间显示这两个 skill：
-`git-commit-message:ggm` 和 `git-commit-message:ggm-p`。
+`git-commit-assistant:draft-commit-message` 和 `git-commit-assistant:commit-changes`。
+
+旧版本使用过更短的 `ggm` 和 `ggm-p` 名称。新版本的 skill description 仍保留这些词作为
+兼容触发线索，但新安装建议使用上面的清晰名称。
 
 ## 仓库结构
 
 ```text
 .
-├── skills/ggm/                    # 生成 commit message
-├── skills/ggm-p/                  # 生成 message 并自动 commit
+├── skills/draft-commit-message/   # 生成 commit message
+├── skills/commit-changes/         # 生成 message 并创建 commit
 ├── .agents/plugins/marketplace.json # Codex marketplace 入口
-├── plugins/git-commit-message/    # Codex 插件包
+├── plugins/git-commit-assistant/  # Codex 插件包
 │   ├── .codex-plugin/plugin.json
 │   └── skills/
 ├── .claude-plugin/plugin.json     # Claude Code 插件入口
@@ -150,7 +153,7 @@ $ggm-p
 
 ## 如何选择
 
-需要“只生成 commit message”时，使用 `ggm`。
+需要“只生成 commit message”时，使用 `draft-commit-message`。
 
 需要模型进一步：
 
@@ -159,7 +162,7 @@ $ggm-p
 - 检查这些文件是否可能包含隐私信息
 - 在隐私检查通过时自动执行 `git commit`
 
-则使用 `ggm-p`。
+则使用 `commit-changes`。
 
 ## License
 

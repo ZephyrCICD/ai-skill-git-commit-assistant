@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commit Changes"
+  short_description: "Commit relevant files safely"
+  default_prompt: "Use $commit-changes to select relevant files, check privacy, and create a git commit for this task."

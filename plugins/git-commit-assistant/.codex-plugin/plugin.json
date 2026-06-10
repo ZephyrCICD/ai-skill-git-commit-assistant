@@ -1,7 +1,7 @@
 {
-  "name": "git-commit-message",
-  "version": "0.1.0",
-  "description": "Generate concise Conventional Commit messages from conversation context and git diff.",
+  "name": "git-commit-assistant",
+  "version": "0.2.0",
+  "description": "Draft Conventional Commit messages and create focused git commits from the current diff.",
   "author": {
     "name": "Zephyr",
     "url": "https://github.com/zephyrcicd"
@@ -13,14 +13,15 @@
     "codex",
     "skill",
     "git",
+    "commit",
     "commit-message",
     "conventional-commits"
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Git Commit Message",
-    "shortDescription": "Generate Conventional Commit messages",
-    "longDescription": "Bundle the ggm and ggm-p skills for generating Conventional Commit messages from conversation context and the current git diff. Use ggm for message-only output, or ggm-p to select relevant files, check likely privacy leakage, and create a commit.",
+    "displayName": "Git Commit Assistant",
+    "shortDescription": "Draft messages and commit changes",
+    "longDescription": "Bundle the draft-commit-message and commit-changes skills for turning the current git diff into a focused Conventional Commit. Draft a message only, or select relevant files, check likely privacy leakage, and create a commit.",
     "developerName": "Zephyr",
     "category": "Developer Tools",
     "capabilities": [
@@ -29,8 +30,8 @@
     ],
     "websiteURL": "https://github.com/zephyrcicd/ai-skill-git-commit-message",
     "defaultPrompt": [
-      "Generate a commit message for this change",
-      "Commit the relevant files with ggm-p",
+      "Draft a commit message for this change",
+      "Commit the relevant files safely",
       "Write a Conventional Commit message from the diff"
     ],
     "brandColor": "#F05032"

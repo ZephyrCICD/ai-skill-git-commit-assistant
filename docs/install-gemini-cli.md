@@ -12,7 +12,7 @@ Gemini CLI does not use the same native skill marketplace flow as Claude Code. T
 
 ```bash
 mkdir -p ~/.gemini
-git clone https://github.com/zephyrcicd/ai-skill-git-commit-message ~/.gemini/git-commit-message
+git clone https://github.com/zephyrcicd/ai-skill-git-commit-message ~/.gemini/git-commit-assistant
 ```
 
 ### 2. Add instructions to `~/.gemini/GEMINI.md`
@@ -20,21 +20,21 @@ git clone https://github.com/zephyrcicd/ai-skill-git-commit-message ~/.gemini/gi
 Append a short section like this:
 
 ```md
-## Shared Git Commit Message Skills
+## Shared Git Commit Assistant Skills
 
-A shared skill repo is available at `~/.gemini/git-commit-message`.
+A shared skill repo is available at `~/.gemini/git-commit-assistant`.
 
 When the user asks to generate a git commit message from the latest conversation context and current git diff, read and follow:
-- `~/.gemini/git-commit-message/skills/ggm/SKILL.md`
+- `~/.gemini/git-commit-assistant/skills/draft-commit-message/SKILL.md`
 
 When the user asks to generate a git commit message and automatically run `git commit` after the privacy check passes, read and follow:
-- `~/.gemini/git-commit-message/skills/ggm-p/SKILL.md`
+- `~/.gemini/git-commit-assistant/skills/commit-changes/SKILL.md`
 ```
 
 ## Update
 
 ```bash
-cd ~/.gemini/git-commit-message
+cd ~/.gemini/git-commit-assistant
 git pull
 ```
 

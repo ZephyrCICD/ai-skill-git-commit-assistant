@@ -4,14 +4,14 @@
 
 ```bash
 mkdir -p ~/.config/opencode
-git clone https://github.com/zephyrcicd/ai-skill-git-commit-message ~/.config/opencode/git-commit-message
+git clone https://github.com/zephyrcicd/ai-skill-git-commit-message ~/.config/opencode/git-commit-assistant
 mkdir -p ~/.config/opencode/skills
-rm -rf ~/.config/opencode/skills/git-commit-message
-ln -s ~/.config/opencode/git-commit-message/skills ~/.config/opencode/skills/git-commit-message
+rm -rf ~/.config/opencode/skills/git-commit-assistant
+ln -s ~/.config/opencode/git-commit-assistant/skills ~/.config/opencode/skills/git-commit-assistant
 ```
 
 ## Verify
 
 ```bash
-ls -l ~/.config/opencode/skills/git-commit-message
+ls -l ~/.config/opencode/skills/git-commit-assistant
 ```

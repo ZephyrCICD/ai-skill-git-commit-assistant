@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "git-commit-message",
+      "name": "git-commit-assistant",
       "source": {
         "source": "local",
-        "path": "./plugins/git-commit-message"
+        "path": "./plugins/git-commit-assistant"
       },
       "policy": {
         "installation": "AVAILABLE",

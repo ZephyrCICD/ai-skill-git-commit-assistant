@@ -1,0 +1,4 @@
+interface:
+  display_name: "Draft Commit Message"
+  short_description: "Write a Conventional Commit message"
+  default_prompt: "Use $draft-commit-message to write a concise Conventional Commit message from the current git diff."

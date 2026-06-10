@@ -25,15 +25,15 @@ install_codex() {
   fi
 
   codex plugin marketplace add "$REPO_DIR"
-  codex plugin add git-commit-message@git-skills
-  echo "Installed Codex plugin: git-commit-message@git-skills"
+  codex plugin add git-commit-assistant@git-skills
+  echo "Installed Codex plugin: git-commit-assistant@git-skills"
 }
 
 install_claude() {
   mkdir -p "$HOME/.claude/skills"
-  link_skill "$REPO_DIR/skills/ggm" "$HOME/.claude/skills/ggm"
-  link_skill "$REPO_DIR/skills/ggm-p" "$HOME/.claude/skills/ggm-p"
-  echo "Installed for Claude Code: $HOME/.claude/skills/{ggm,ggm-p}"
+  link_skill "$REPO_DIR/skills/draft-commit-message" "$HOME/.claude/skills/draft-commit-message"
+  link_skill "$REPO_DIR/skills/commit-changes" "$HOME/.claude/skills/commit-changes"
+  echo "Installed for Claude Code: $HOME/.claude/skills/{draft-commit-message,commit-changes}"
 }
 
 case "$MODE" in

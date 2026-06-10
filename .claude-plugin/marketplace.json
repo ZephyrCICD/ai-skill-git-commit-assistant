@@ -6,9 +6,9 @@
   },
   "plugins": [
     {
-      "name": "git-commit-message",
-      "description": "Generate concise Conventional Commit messages from conversation context and git diff",
-      "version": "0.1.0",
+      "name": "git-commit-assistant",
+      "description": "Draft Conventional Commit messages and create focused git commits",
+      "version": "0.2.0",
       "source": "./"
     }
   ]

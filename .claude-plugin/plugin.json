@@ -1,7 +1,7 @@
 {
-  "name": "git-commit-message",
-  "version": "0.1.0",
-  "description": "Claude Code skill for generating concise Conventional Commit messages from conversation context and git diff.",
+  "name": "git-commit-assistant",
+  "version": "0.2.0",
+  "description": "Claude Code skills for drafting Conventional Commit messages and creating focused git commits.",
   "author": {
     "name": "Zephyr",
     "url": "https://github.com/zephyrcicd"
@@ -9,5 +9,5 @@
   "homepage": "https://github.com/zephyrcicd/ai-skill-git-commit-message",
   "repository": "https://github.com/zephyrcicd/ai-skill-git-commit-message",
   "license": "MIT",
-  "keywords": ["claude-code", "skill", "git", "commit-message", "conventional-commits"]
+  "keywords": ["claude-code", "skill", "git", "commit", "commit-message", "conventional-commits"]
 }

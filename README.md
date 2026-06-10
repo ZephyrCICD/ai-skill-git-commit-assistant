@@ -1,8 +1,8 @@
-# Git Commit Message Skills
+# Git Commit Assistant
 
 English | [简体中文](README.zh-CN.md)
 
-A shareable AI skill repo for generating Git commit messages from conversation context and the current git diff.
+A shareable AI skill repo for drafting Conventional Commit messages and creating focused git commits from conversation context and the current git diff.
 
 Recommended install style: use the native marketplace flow when the tool supports it. Claude Code
 and Codex use separate marketplace metadata in this repo; their marketplace registrations are not
@@ -10,8 +10,8 @@ shared automatically.
 
 It ships two related skills:
 
-- `ggm` - generate a concise commit message only
-- `ggm-p` - generate a commit message, check the relevant files, and commit automatically when the privacy check passes
+- `draft-commit-message` - generate a concise commit message only
+- `commit-changes` - select relevant files, check likely privacy leakage, and create a commit
 
 ## What These Skills Do
 
@@ -22,7 +22,7 @@ These skills help an AI agent combine:
 - Conventional Commit best practices
 - optional scoped commit style such as `feat(ship): ...`
 
-`ggm-p` adds an extra guarded flow:
+`commit-changes` adds an extra guarded flow:
 
 - selects only files relevant to the current change
 - checks selected files for likely personal privacy leakage before commit
@@ -37,7 +37,7 @@ These skills help an AI agent combine:
 - Prefers the real git diff over vague conversational intent when they conflict
 - Follows the dominant language used in the last 3 user messages when generating commit messages, with fallback to broader recent context
 - Works with both Claude Code and Codex marketplace flows
-- Keeps `ggm` and `ggm-p` separate so message-only and commit-assisted flows stay explicit
+- Keeps message-only and commit-assisted flows separate so the user's intent stays explicit
 
 ## Example Outputs
 
@@ -58,18 +58,18 @@ uses its native extension install flow.
 
 ```bash
 claude plugin marketplace add zephyrcicd/ai-skill-git-commit-message
-claude plugin install git-commit-message@git-skills
+claude plugin install git-commit-assistant@git-skills
 ```
 
 ### Codex
 
 Codex uses the `.agents/plugins/marketplace.json` marketplace and the plugin manifest under
-`plugins/git-commit-message/.codex-plugin/plugin.json`. Add the marketplace, then install the
+`plugins/git-commit-assistant/.codex-plugin/plugin.json`. Add the marketplace, then install the
 plugin:
 
 ```bash
 codex plugin marketplace add zephyrcicd/ai-skill-git-commit-message
-codex plugin add git-commit-message@git-skills
+codex plugin add git-commit-assistant@git-skills
 ```
 
 Start a new Codex thread after installing so the bundled skills are available.
@@ -95,7 +95,7 @@ gemini extensions install https://github.com/zephyrcicd/ai-skill-git-commit-mess
 To update:
 
 ```bash
-gemini extensions update git-commit-message
+gemini extensions update git-commit-assistant
 ```
 
 Detailed guide: `docs/install-gemini-cli.md`
@@ -122,24 +122,27 @@ Each file contains a single copy-ready prompt for that specific platform.
 ## Usage
 
 ```text
-$ggm
+$draft-commit-message
 ```
 
 ```text
-$ggm-p
+$commit-changes
 ```
 
 When installed as a Codex plugin, Codex may show the skills with the plugin namespace:
-`git-commit-message:ggm` and `git-commit-message:ggm-p`.
+`git-commit-assistant:draft-commit-message` and `git-commit-assistant:commit-changes`.
+
+Previous versions exposed the shorter `ggm` and `ggm-p` names. Those names are still recognized in
+the skill descriptions as legacy shorthands, but new installs should use the clearer names above.
 
 ## Repository Layout
 
 ```text
 .
-├── skills/ggm/                    # generate commit message
-├── skills/ggm-p/                  # generate message and auto-commit
+├── skills/draft-commit-message/   # generate commit message
+├── skills/commit-changes/         # generate message and auto-commit
 ├── .agents/plugins/marketplace.json # Codex marketplace entry
-├── plugins/git-commit-message/    # Codex plugin package
+├── plugins/git-commit-assistant/  # Codex plugin package
 │   ├── .codex-plugin/plugin.json
 │   └── skills/
 ├── .claude-plugin/plugin.json     # Claude Code plugin entry
@@ -151,9 +154,9 @@ When installed as a Codex plugin, Codex may show the skills with the plugin name
 
 ## Choosing Between Them
 
-Use `ggm` when you only want the commit message.
+Use `draft-commit-message` when you only want the commit message.
 
-Use `ggm-p` when you want the model to:
+Use `commit-changes` when you want the model to:
 
 - generate the message
 - narrow the commit to relevant files

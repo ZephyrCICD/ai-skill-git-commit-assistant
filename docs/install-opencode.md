@@ -13,28 +13,28 @@ This guide follows the git-based install style used by Superpowers for OpenCode:
 
 ```bash
 mkdir -p ~/.config/opencode
-git clone https://github.com/zephyrcicd/ai-skill-git-commit-message ~/.config/opencode/git-commit-message
+git clone https://github.com/zephyrcicd/ai-skill-git-commit-message ~/.config/opencode/git-commit-assistant
 ```
 
 ### 2. Symlink the skills
 
 ```bash
 mkdir -p ~/.config/opencode/skills
-rm -rf ~/.config/opencode/skills/git-commit-message
-ln -s ~/.config/opencode/git-commit-message/skills ~/.config/opencode/skills/git-commit-message
+rm -rf ~/.config/opencode/skills/git-commit-assistant
+ln -s ~/.config/opencode/git-commit-assistant/skills ~/.config/opencode/skills/git-commit-assistant
 ```
 
 ## Usage
 
 Use OpenCode's native skill loading/discovery flow and load:
 
-- `git-commit-message/ggm`
-- `git-commit-message/ggm-p`
+- `git-commit-assistant/draft-commit-message`
+- `git-commit-assistant/commit-changes`
 
 ## Update
 
 ```bash
-cd ~/.config/opencode/git-commit-message
+cd ~/.config/opencode/git-commit-assistant
 git pull
 ```
 

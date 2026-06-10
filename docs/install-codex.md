@@ -2,13 +2,13 @@
 
 Codex and Claude Code do not share marketplace registrations automatically. This repository includes
 Codex-specific metadata in `.agents/plugins/marketplace.json` and
-`plugins/git-commit-message/.codex-plugin/plugin.json`.
+`plugins/git-commit-assistant/.codex-plugin/plugin.json`.
 
 ## Installation
 
 ```bash
 codex plugin marketplace add zephyrcicd/ai-skill-git-commit-message
-codex plugin add git-commit-message@git-skills
+codex plugin add git-commit-assistant@git-skills
 ```
 
 Start a new Codex thread after installing so Codex loads the bundled skills.
@@ -20,7 +20,7 @@ If you are developing this repository locally, add the local clone as the market
 ```bash
 git clone https://github.com/zephyrcicd/ai-skill-git-commit-message ~/ai/skills/ai-skill-git-commit-message
 codex plugin marketplace add ~/ai/skills/ai-skill-git-commit-message
-codex plugin add git-commit-message@git-skills
+codex plugin add git-commit-assistant@git-skills
 ```
 
 Restart Codex or start a new thread after reinstalling during local development.
@@ -30,12 +30,15 @@ Restart Codex or start a new thread after reinstalling during local development.
 Use the plugin from the Codex plugin picker, or ask for the bundled skills by name. Codex may expose
 them with the plugin namespace:
 
-- `git-commit-message:ggm`
-- `git-commit-message:ggm-p`
+- `git-commit-assistant:draft-commit-message`
+- `git-commit-assistant:commit-changes`
+
+The legacy shorthand terms `ggm` and `ggm-p` remain in the skill descriptions for compatibility
+with older prompts, but new installs should use the clearer names above.
 
 ## Update
 
 ```bash
 codex plugin marketplace upgrade git-skills
-codex plugin add git-commit-message@git-skills
+codex plugin add git-commit-assistant@git-skills
 ```

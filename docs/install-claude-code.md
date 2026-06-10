@@ -6,15 +6,18 @@ Recommended: add this repository as a marketplace, then install the plugin from 
 
 ```bash
 claude plugin marketplace add zephyrcicd/ai-skill-git-commit-message
-claude plugin install git-commit-message@git-skills
+claude plugin install git-commit-assistant@git-skills
 ```
 
 ## Use it
 
 ```text
-$ggm
+$draft-commit-message
 ```
 
 ```text
-$ggm-p
+$commit-changes
 ```
+
+The legacy shorthand terms `ggm` and `ggm-p` remain in the skill descriptions for compatibility
+with older prompts, but new installs should use the clearer names above.
