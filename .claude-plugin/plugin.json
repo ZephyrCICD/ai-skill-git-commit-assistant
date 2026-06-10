@@ -6,8 +6,8 @@
     "name": "Zephyr",
     "url": "https://github.com/zephyrcicd"
   },
-  "homepage": "https://github.com/zephyrcicd/ai-skill-git-commit-message",
-  "repository": "https://github.com/zephyrcicd/ai-skill-git-commit-message",
+  "homepage": "https://github.com/ZephyrCICD/ai-skill-git-commit-assistant",
+  "repository": "https://github.com/ZephyrCICD/ai-skill-git-commit-assistant",
   "license": "MIT",
   "keywords": ["claude-code", "skill", "git", "commit", "commit-message", "conventional-commits"]
 }

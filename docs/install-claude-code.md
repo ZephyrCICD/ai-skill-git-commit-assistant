@@ -5,7 +5,7 @@ Recommended: add this repository as a marketplace, then install the plugin from 
 ## Marketplace install
 
 ```bash
-claude plugin marketplace add zephyrcicd/ai-skill-git-commit-message
+claude plugin marketplace add ZephyrCICD/ai-skill-git-commit-assistant
 claude plugin install git-commit-assistant@git-skills
 ```
 

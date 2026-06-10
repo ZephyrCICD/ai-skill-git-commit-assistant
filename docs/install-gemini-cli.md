@@ -12,7 +12,7 @@ Gemini CLI does not use the same native skill marketplace flow as Claude Code. T
 
 ```bash
 mkdir -p ~/.gemini
-git clone https://github.com/zephyrcicd/ai-skill-git-commit-message ~/.gemini/git-commit-assistant
+git clone https://github.com/ZephyrCICD/ai-skill-git-commit-assistant ~/.gemini/git-commit-assistant
 ```
 
 ### 2. Add instructions to `~/.gemini/GEMINI.md`

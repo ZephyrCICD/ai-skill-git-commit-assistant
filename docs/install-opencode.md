@@ -13,7 +13,7 @@ This guide follows the git-based install style used by Superpowers for OpenCode:
 
 ```bash
 mkdir -p ~/.config/opencode
-git clone https://github.com/zephyrcicd/ai-skill-git-commit-message ~/.config/opencode/git-commit-assistant
+git clone https://github.com/ZephyrCICD/ai-skill-git-commit-assistant ~/.config/opencode/git-commit-assistant
 ```
 
 ### 2. Symlink the skills

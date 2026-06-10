@@ -56,7 +56,7 @@ OpenCode 更适合直接把一句安装指令复制给对应 AI；Gemini CLI 使
 ### Claude Code
 
 ```bash
-claude plugin marketplace add zephyrcicd/ai-skill-git-commit-message
+claude plugin marketplace add ZephyrCICD/ai-skill-git-commit-assistant
 claude plugin install git-commit-assistant@git-skills
 ```
 
@@ -67,7 +67,7 @@ Codex 使用本仓库里的 `.agents/plugins/marketplace.json` marketplace，以
 再安装插件：
 
 ```bash
-codex plugin marketplace add zephyrcicd/ai-skill-git-commit-message
+codex plugin marketplace add ZephyrCICD/ai-skill-git-commit-assistant
 codex plugin add git-commit-assistant@git-skills
 ```
 
@@ -80,7 +80,7 @@ codex plugin add git-commit-assistant@git-skills
 直接告诉 OpenCode：
 
 ```text
-Fetch and follow instructions from https://raw.githubusercontent.com/zephyrcicd/ai-skill-git-commit-message/refs/heads/main/.opencode/INSTALL.md
+Fetch and follow instructions from https://raw.githubusercontent.com/ZephyrCICD/ai-skill-git-commit-assistant/refs/heads/main/.opencode/INSTALL.md
 ```
 
 详细说明见：`docs/install-opencode.md`
@@ -88,7 +88,7 @@ Fetch and follow instructions from https://raw.githubusercontent.com/zephyrcicd/
 ### Gemini CLI
 
 ```bash
-gemini extensions install https://github.com/zephyrcicd/ai-skill-git-commit-message
+gemini extensions install https://github.com/ZephyrCICD/ai-skill-git-commit-assistant
 ```
 
 更新：

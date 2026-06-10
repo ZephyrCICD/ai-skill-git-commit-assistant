@@ -3,7 +3,7 @@
 ## Steps
 
 ```bash
-codex plugin marketplace add zephyrcicd/ai-skill-git-commit-message
+codex plugin marketplace add ZephyrCICD/ai-skill-git-commit-assistant
 codex plugin add git-commit-assistant@git-skills
 ```
 

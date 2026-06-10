@@ -7,7 +7,7 @@ Codex-specific metadata in `.agents/plugins/marketplace.json` and
 ## Installation
 
 ```bash
-codex plugin marketplace add zephyrcicd/ai-skill-git-commit-message
+codex plugin marketplace add ZephyrCICD/ai-skill-git-commit-assistant
 codex plugin add git-commit-assistant@git-skills
 ```
 
@@ -18,8 +18,8 @@ Start a new Codex thread after installing so Codex loads the bundled skills.
 If you are developing this repository locally, add the local clone as the marketplace source:
 
 ```bash
-git clone https://github.com/zephyrcicd/ai-skill-git-commit-message ~/ai/skills/ai-skill-git-commit-message
-codex plugin marketplace add ~/ai/skills/ai-skill-git-commit-message
+git clone https://github.com/ZephyrCICD/ai-skill-git-commit-assistant ~/ai/skills/ai-skill-git-commit-assistant
+codex plugin marketplace add ~/ai/skills/ai-skill-git-commit-assistant
 codex plugin add git-commit-assistant@git-skills
 ```
 

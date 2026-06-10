@@ -57,7 +57,7 @@ uses its native extension install flow.
 ### Claude Code
 
 ```bash
-claude plugin marketplace add zephyrcicd/ai-skill-git-commit-message
+claude plugin marketplace add ZephyrCICD/ai-skill-git-commit-assistant
 claude plugin install git-commit-assistant@git-skills
 ```
 
@@ -68,7 +68,7 @@ Codex uses the `.agents/plugins/marketplace.json` marketplace and the plugin man
 plugin:
 
 ```bash
-codex plugin marketplace add zephyrcicd/ai-skill-git-commit-message
+codex plugin marketplace add ZephyrCICD/ai-skill-git-commit-assistant
 codex plugin add git-commit-assistant@git-skills
 ```
 
@@ -81,7 +81,7 @@ Detailed guide: `docs/install-codex.md`
 Tell OpenCode:
 
 ```text
-Fetch and follow instructions from https://raw.githubusercontent.com/zephyrcicd/ai-skill-git-commit-message/refs/heads/main/.opencode/INSTALL.md
+Fetch and follow instructions from https://raw.githubusercontent.com/ZephyrCICD/ai-skill-git-commit-assistant/refs/heads/main/.opencode/INSTALL.md
 ```
 
 Detailed guide: `docs/install-opencode.md`
@@ -89,7 +89,7 @@ Detailed guide: `docs/install-opencode.md`
 ### Gemini CLI
 
 ```bash
-gemini extensions install https://github.com/zephyrcicd/ai-skill-git-commit-message
+gemini extensions install https://github.com/ZephyrCICD/ai-skill-git-commit-assistant
 ```
 
 To update:
