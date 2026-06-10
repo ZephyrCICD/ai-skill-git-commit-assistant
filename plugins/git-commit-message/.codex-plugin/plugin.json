@@ -1,0 +1,38 @@
+{
+  "name": "git-commit-message",
+  "version": "0.1.0",
+  "description": "Generate concise Conventional Commit messages from conversation context and git diff.",
+  "author": {
+    "name": "Zephyr",
+    "url": "https://github.com/zephyrcicd"
+  },
+  "homepage": "https://github.com/zephyrcicd/ai-skill-git-commit-message",
+  "repository": "https://github.com/zephyrcicd/ai-skill-git-commit-message",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "skill",
+    "git",
+    "commit-message",
+    "conventional-commits"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Git Commit Message",
+    "shortDescription": "Generate Conventional Commit messages",
+    "longDescription": "Bundle the ggm and ggm-p skills for generating Conventional Commit messages from conversation context and the current git diff. Use ggm for message-only output, or ggm-p to select relevant files, check likely privacy leakage, and create a commit.",
+    "developerName": "Zephyr",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/zephyrcicd/ai-skill-git-commit-message",
+    "defaultPrompt": [
+      "Generate a commit message for this change",
+      "Commit the relevant files with ggm-p",
+      "Write a Conventional Commit message from the diff"
+    ],
+    "brandColor": "#F05032"
+  }
+}

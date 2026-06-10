@@ -4,7 +4,8 @@
 
 这是一个可分享的 AI skill 仓库，用于根据最近一次对话上下文和当前仓库的 git diff 生成 Git commit message。
 
-推荐安装方式：优先使用 Git。先 clone 仓库，再按对应平台文档完成安装。
+推荐安装方式：优先使用目标工具自己的 marketplace 流程。本仓库同时包含 Claude Code 和
+Codex 的 marketplace 元数据，但两者不会自动共用同一个插件市场配置。
 
 仓库包含两个相关 skill：
 
@@ -34,7 +35,7 @@
 - 当改动领域明确时自动补 scope，例如 `feat(ship): ...`
 - 当对话描述与实际 diff 冲突时，优先相信真实代码改动
 - 生成 commit message 时会优先跟随最近 3 轮用户消息的主语言，必要时再回退到更宽的最近对话上下文
-- 同时支持 Claude Code 和 Codex
+- 同时支持 Claude Code 和 Codex 的 marketplace 安装流程
 - 将 `ggm` 和 `ggm-p` 分开，便于明确区分“仅生成 message”和“自动 commit”的流程
 
 ## 示例输出
@@ -48,7 +49,9 @@ chore: clean up unused feature flags
 
 ## 安装
 
-不同平台的安装方式不同。Claude Code 使用 marketplace 流程；Codex 和 OpenCode 更适合直接把一句安装指令复制给对应 AI；Gemini CLI 使用它自己的 extension 安装方式。
+不同平台的安装方式不同。Claude Code 和 Codex 分别使用自己的 marketplace 流程；
+OpenCode 更适合直接把一句安装指令复制给对应 AI；Gemini CLI 使用它自己的 extension
+安装方式。
 
 ### Claude Code
 
@@ -59,11 +62,16 @@ claude plugin install git-commit-message@git-skills
 
 ### Codex
 
-直接告诉 Codex：
+Codex 使用本仓库里的 `.agents/plugins/marketplace.json` marketplace，以及
+`plugins/git-commit-message/.codex-plugin/plugin.json` 插件 manifest。先添加 marketplace，
+再安装插件：
 
-```text
-Fetch and follow instructions from https://raw.githubusercontent.com/zephyrcicd/ai-skill-git-commit-message/refs/heads/main/.codex/INSTALL.md
+```bash
+codex plugin marketplace add zephyrcicd/ai-skill-git-commit-message
+codex plugin add git-commit-message@git-skills
 ```
+
+安装后新开一个 Codex 会话，让 bundled skills 生效。
 
 详细说明见：`docs/install-codex.md`
 
@@ -120,12 +128,19 @@ $ggm
 $ggm-p
 ```
 
+通过 Codex 插件方式安装时，Codex 可能会以插件命名空间显示这两个 skill：
+`git-commit-message:ggm` 和 `git-commit-message:ggm-p`。
+
 ## 仓库结构
 
 ```text
 .
 ├── skills/ggm/                    # 生成 commit message
 ├── skills/ggm-p/                  # 生成 message 并自动 commit
+├── .agents/plugins/marketplace.json # Codex marketplace 入口
+├── plugins/git-commit-message/    # Codex 插件包
+│   ├── .codex-plugin/plugin.json
+│   └── skills/
 ├── .claude-plugin/plugin.json     # Claude Code 插件入口
 ├── .claude-plugin/marketplace.json
 ├── .codex/INSTALL.md              # Codex 安装说明

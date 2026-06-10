@@ -3,16 +3,14 @@
 ## Steps
 
 ```bash
-mkdir -p ~/ai/skills
-git clone https://github.com/zephyrcicd/ai-skill-git-commit-message ~/ai/skills/ai-skill-git-commit-message
-mkdir -p ~/.codex/skills
-rm -rf ~/.codex/skills/ggm ~/.codex/skills/ggm-p
-ln -s ~/ai/skills/ai-skill-git-commit-message/skills/ggm ~/.codex/skills/ggm
-ln -s ~/ai/skills/ai-skill-git-commit-message/skills/ggm-p ~/.codex/skills/ggm-p
+codex plugin marketplace add zephyrcicd/ai-skill-git-commit-message
+codex plugin add git-commit-message@git-skills
 ```
+
+Start a new Codex thread after installing so the bundled skills are available.
 
 ## Verify
 
 ```bash
-ls -l ~/.codex/skills/ggm ~/.codex/skills/ggm-p
+codex plugin list
 ```

@@ -14,14 +14,12 @@ claude plugin marketplace update git-skills
 
 ## Codex
 
-If installed from git with symlinks, update the cloned repo:
-
 ```bash
-cd ~/ai/skills/ai-skill-git-commit-message
-git pull
+codex plugin marketplace upgrade git-skills
+codex plugin add git-commit-message@git-skills
 ```
 
-Your existing links in `~/.codex/skills` continue to work.
+Start a new Codex thread after reinstalling so the refreshed skills are loaded.
 
 ## OpenCode
 

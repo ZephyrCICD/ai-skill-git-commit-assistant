@@ -1,0 +1,20 @@
+{
+  "name": "git-skills",
+  "interface": {
+    "displayName": "Git Skills"
+  },
+  "plugins": [
+    {
+      "name": "git-commit-message",
+      "source": {
+        "source": "local",
+        "path": "./plugins/git-commit-message"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

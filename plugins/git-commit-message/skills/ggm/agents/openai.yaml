@@ -1,0 +1,4 @@
+interface:
+  display_name: "GGM"
+  short_description: "Generate clean git commit messages"
+  default_prompt: "Use $ggm to produce a concise Conventional Commit message from this session and the current git diff."

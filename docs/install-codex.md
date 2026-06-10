@@ -1,38 +1,41 @@
 # Install for Codex
 
-This guide follows the git-based install style used by Superpowers: keep a local clone of the repo, then symlink the skills into Codex.
+Codex and Claude Code do not share marketplace registrations automatically. This repository includes
+Codex-specific metadata in `.agents/plugins/marketplace.json` and
+`plugins/git-commit-message/.codex-plugin/plugin.json`.
 
 ## Installation
 
-### 1. Clone the repository
+```bash
+codex plugin marketplace add zephyrcicd/ai-skill-git-commit-message
+codex plugin add git-commit-message@git-skills
+```
+
+Start a new Codex thread after installing so Codex loads the bundled skills.
+
+## Local Development Install
+
+If you are developing this repository locally, add the local clone as the marketplace source:
 
 ```bash
-mkdir -p ~/ai/skills
 git clone https://github.com/zephyrcicd/ai-skill-git-commit-message ~/ai/skills/ai-skill-git-commit-message
+codex plugin marketplace add ~/ai/skills/ai-skill-git-commit-message
+codex plugin add git-commit-message@git-skills
 ```
 
-### 2. Symlink the skills into Codex
+Restart Codex or start a new thread after reinstalling during local development.
 
-```bash
-mkdir -p ~/.codex/skills
-rm -rf ~/.codex/skills/ggm ~/.codex/skills/ggm-p
-ln -s ~/ai/skills/ai-skill-git-commit-message/skills/ggm ~/.codex/skills/ggm
-ln -s ~/ai/skills/ai-skill-git-commit-message/skills/ggm-p ~/.codex/skills/ggm-p
-```
+## Use It
 
-## Use it
+Use the plugin from the Codex plugin picker, or ask for the bundled skills by name. Codex may expose
+them with the plugin namespace:
 
-```text
-$ggm
-```
-
-```text
-$ggm-p
-```
+- `git-commit-message:ggm`
+- `git-commit-message:ggm-p`
 
 ## Update
 
 ```bash
-cd ~/ai/skills/ai-skill-git-commit-message
-git pull
+codex plugin marketplace upgrade git-skills
+codex plugin add git-commit-message@git-skills
 ```

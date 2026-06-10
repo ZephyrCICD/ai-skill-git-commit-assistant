@@ -1,0 +1,4 @@
+interface:
+  display_name: "GGM-P"
+  short_description: "Generate clean git commit messages"
+  default_prompt: "Use $ggm-p to generate a Conventional Commit message for this change and automatically run git commit for the relevant files after the privacy check passes."

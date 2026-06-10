@@ -19,10 +19,14 @@ link_skill() {
 }
 
 install_codex() {
-  mkdir -p "$HOME/.codex/skills"
-  link_skill "$REPO_DIR/skills/ggm" "$HOME/.codex/skills/ggm"
-  link_skill "$REPO_DIR/skills/ggm-p" "$HOME/.codex/skills/ggm-p"
-  echo "Installed for Codex: $HOME/.codex/skills/{ggm,ggm-p}"
+  if ! command -v codex >/dev/null 2>&1; then
+    echo "codex CLI not found. Install Codex first, then rerun this installer." >&2
+    exit 1
+  fi
+
+  codex plugin marketplace add "$REPO_DIR"
+  codex plugin add git-commit-message@git-skills
+  echo "Installed Codex plugin: git-commit-message@git-skills"
 }
 
 install_claude() {
